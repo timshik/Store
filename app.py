@@ -9,7 +9,7 @@ from resources.item import Item, ItemList
 from db import db
 from resources.store import Store, StoreList
 
-
+ db.init_app(app)
 app = Flask(__name__)
 app.config["SQLAlchemy_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLAlchemy_TRACK_MODIFICATIONS"] = False
@@ -30,5 +30,4 @@ api.add_resource(ItemList, '/items')
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
-    db.init_app(app)
     app.run(debug=True)  # important to mention debug=True
